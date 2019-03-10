@@ -9,7 +9,7 @@ For itemsets, type ./gen lit -help
 For sequences, type ./gen seq -help
 
 
-##Itemset Datasets
+## Itemset Datasets
 
 These datasets mimic the transactions in a retailing
 environment, where people tend to buy sets of items
@@ -75,7 +75,7 @@ An example run can be:
 This will generate a datafile named "T10I4D100K.data"
 
 
-##Sequence Datasets
+## Sequence Datasets
 
 The generator generates sequence datasets that 
 mimic real-world transactions, where people buy a
