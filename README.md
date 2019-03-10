@@ -28,7 +28,48 @@ itemsets of average size *I* by choosing from the *N* items. We
 next generate *D* transactions of average size *T* by choosing
 from the *L* maximal itemsets. 
 
+Type: ./gen lit -help 
+
+for all the parameters to generate sequence datasets:
+
+
+Command Line Options:
+  
+  -ncust number_of_customers (in 1000's) (default: 100)
+  
+  -slen avg_trans_per_customer (default: 10)
+  
+  -tlen avg_items_per_transaction (default: 2.5)
+  
+  -nitems number_of_different_items (in '000s) (default: 10000)
+  
+  -rept repetition-level (default: 0)
+
+  -seq.npats number_of_seq_patterns (default: 5000)
+
+  -seq.patlen avg_length_of_maximal_pattern (default: 4)
+  
+  -seq.corr correlation_between_patterns (default: 0.25)
+  
+  -seq.conf avg_confidence_in_a_rule (default: 0.75)
+
+  -lit.npats number_of_patterns (default: 25000)
+  
+  -lit.patlen avg_length_of_maximal_pattern (default: 1.25)
+  
+  -lit.corr correlation_between_patterns (default: 0.25)
+  
+  -lit.conf avg_confidence_in_a_rule (default: 0.75)
+
+  -fname <filename> (write to filename.data and filename.pat)
+  
+  -ascii (Write data in ASCII format; default: False)
+  
+  -version (to print out version info)
+
+
 An example run can be: 
+
 ./gen lit -ntrans 100 -tlen 10 -nitems 1 -npats 1000 -patlen 4 -fname T10I4D100K -ascii
 
 This will generate a datafile named "T10I4D100K.data"
@@ -54,34 +95,53 @@ stops when *D* input-sequences have been generated. Default values are
 *NS* = 5000, *NI* = 25000 and *N* = 10000. 
 
 Type: ./gen seq -help 
+
 for all the parameters to generate sequence datasets:
 
 Command Line Options:
+
   -ncust number_of_customers (in 1000's) (default: 100)
+
   -slen avg_trans_per_customer (default: 10)
+  
   -tlen avg_items_per_transaction (default: 2.5)
+  
   -nitems number_of_different_items (in '000s) (default: 10000)
+  
   -rept repetition-level (default: 0)
 
   -seq.npats number_of_seq_patterns (default: 5000)
+  
   -seq.patlen avg_length_of_maximal_pattern (default: 4)
+  
   -seq.corr correlation_between_patterns (default: 0.25)
+  
   -seq.conf avg_confidence_in_a_rule (default: 0.75)
 
   -lit.npats number_of_patterns (default: 25000)
+
   -lit.patlen avg_length_of_maximal_pattern (default: 1.25)
+  
   -lit.corr correlation_between_patterns (default: 0.25)
+  
   -lit.conf avg_confidence_in_a_rule (default: 0.75)
 
   -fname <filename> (write to filename.data and filename.pat)
+  
   -ascii (Write data in ASCII format; default: False)
+  
   -version (to print out version info)
 
 An example run can be:
+
 ./gen seq -ncust 200 -fname C10T2.5S4I1.25D200K -ascii
 
 This will generate four files:
+
 [fname].data -- the actual data file
+
 [fname].conf -- configuration info
+
 [fname].pat -- the embedded patterns
+
 [fname].ntpc -- info on number of trans per customer (ignore this file)
