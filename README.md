@@ -73,6 +73,24 @@ An example run can be:
 ./gen lit -ntrans 100 -tlen 10 -nitems 1 -npats 1000 -patlen 4 -fname T10I4D100K -ascii
 
 This will generate a datafile named "T10I4D100K.data"
+In fact it generates three files:
+
+[fname].data -- the actual data file
+
+[fname].conf -- configuration info
+
+[fname].pat -- the embedded patterns
+
+
+### Data Format
+The generated file has the following format. Each line contains:
+
+TID TID NITEMS ITEMSET
+
+where TID is a transaction identifier, NITEMS is the number of items in
+that transaction, and ITEMSET is the set of items making up that
+transaction. All ITEMSETS are sorted lexicographically. Note that TID is
+repeated for consistency with the sequence generator.
 
 
 ## Sequence Datasets
@@ -136,7 +154,8 @@ An example run can be:
 
 ./gen seq -ncust 200 -fname C10T2.5S4I1.25D200K -ascii
 
-This will generate four files:
+This will generate a datafile named "C10T2.5S4I1.25D200K.data"
+In fact, it generates four files:
 
 [fname].data -- the actual data file
 
@@ -145,3 +164,16 @@ This will generate four files:
 [fname].pat -- the embedded patterns
 
 [fname].ntpc -- info on number of trans per customer (ignore this file)
+
+
+### Data Format
+The generated file has the following format. Each line contains:
+
+SID TID NITEMS ITEMSET
+
+where SID is the sequence identifier, TID is a transaction/event identifier, NITEMS is the number of items in
+that transaction, and ITEMSET is the set of items making up that
+transaction. The TIDs for an SID are listed in temporal order, i.e.,
+TIDs are event ids within that sequence. All ITEMSETS are also sorted
+lexicographically.
+
